@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>림예이 팬 커뮤니티</title>
+<style>
+:root{--bg:#0d0f14;--panel:#151821;--line:#252a36;--muted:#8f98aa;--text:#f6f7fb;--accent:#7068ff;--pink:#ff5b91}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--text);font-family:Pretendard,"Noto Sans KR",system-ui,sans-serif}a{color:inherit;text-decoration:none}button,input,textarea{font:inherit}
+.wrap{width:min(1180px,calc(100% - 32px));margin:auto}
+header{position:sticky;top:0;z-index:20;background:#0d0f14e8;backdrop-filter:blur(14px);border-bottom:1px solid var(--line)}
+.nav{height:64px;display:flex;align-items:center;gap:26px}.logo{font-weight:950;font-size:21px}.logo b{color:#837cff}.menus{display:flex;gap:20px;font-size:14px;color:#b6bdca}.menus a:hover{color:#fff}.station{margin-left:auto;background:#655cff;padding:10px 14px;border-radius:11px;font-weight:800;font-size:13px}
+.hero{margin-top:26px;min-height:245px;border:1px solid #2a3040;border-radius:24px;padding:38px;display:flex;align-items:end;position:relative;overflow:hidden;background:radial-gradient(circle at 78% 20%,#7b55ff88,transparent 30%),radial-gradient(circle at 60% 80%,#ff477655,transparent 27%),linear-gradient(135deg,#191d29,#10131a)}
+.hero:after{content:"림예이";position:absolute;right:5%;top:10%;font-size:clamp(75px,13vw,150px);font-weight:1000;color:#ffffff0a;letter-spacing:-8px}.heroText{position:relative;z-index:2}.tag{font-size:12px;color:#c2bfff;font-weight:900;letter-spacing:1px}.hero h1{font-size:38px;margin:8px 0 8px;letter-spacing:-1.7px}.hero p{margin:0;color:#aab2c2}
+.layout{display:grid;grid-template-columns:minmax(0,1fr) 300px;gap:22px;margin:26px 0 70px}.section{background:var(--panel);border:1px solid var(--line);border-radius:18px;overflow:hidden}.sectionHead{padding:19px 20px;border-bottom:1px solid var(--line);display:flex;align-items:center;justify-content:space-between}.sectionHead h2{font-size:18px;margin:0}.more{font-size:12px;color:#8d96a7}
+.videos{display:grid;grid-template-columns:repeat(3,1fr);gap:13px;padding:16px}.video{border-radius:14px;overflow:hidden;background:#10131a;border:1px solid #242a35;transition:.18s}.video:hover{transform:translateY(-3px);border-color:#4b5367}.thumb{aspect-ratio:16/9;display:grid;place-items:center;position:relative;background:radial-gradient(circle at 30% 25%,#795eff99,transparent 30%),radial-gradient(circle at 75% 75%,#ff4f8790,transparent 27%),#1b1f2a}.play{width:46px;height:46px;border-radius:50%;background:#fff;display:grid;place-items:center}.play:after{content:"";margin-left:4px;border-left:13px solid #171a22;border-top:8px solid transparent;border-bottom:8px solid transparent}.vodBody{padding:12px}.vodTitle{font-size:14px;font-weight:800;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.vodMeta{font-size:11px;color:var(--muted);margin-top:7px}
+.tabs{display:flex;gap:4px;padding:12px 16px 0}.tab{border:0;background:transparent;color:#8790a1;padding:9px 12px;cursor:pointer;border-radius:9px}.tab.active{background:#282d3a;color:#fff;font-weight:800}
+.boardTop{padding:12px 16px;display:flex;gap:9px}.search{flex:1;background:#10131a;border:1px solid #282e3a;color:#fff;border-radius:10px;padding:10px 12px;outline:none}.writeBtn{border:0;background:#655cff;color:white;border-radius:10px;padding:0 15px;font-weight:800;cursor:pointer}
+.row{display:grid;grid-template-columns:52px minmax(0,1fr) 110px 75px;align-items:center;min-height:51px;border-top:1px solid #222732;padding:0 16px;font-size:13px}.row:hover{background:#191d26}.num{color:#6f7889}.subject{white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.subject b{font-size:10px;background:#5f57ff22;color:#a7a2ff;padding:4px 6px;border-radius:5px;margin-right:7px}.author,.date{color:#858fa0;font-size:12px}.notice .subject{font-weight:800}.notice .num{color:#ff6d9d;font-weight:900}
+.side{display:flex;flex-direction:column;gap:18px}.profile{padding:22px}.avatar{width:64px;height:64px;border-radius:50%;background:linear-gradient(135deg,#786cff,#ff5b91);display:grid;place-items:center;font-weight:1000;font-size:20px;margin-bottom:13px}.profile h3{margin:0 0 6px}.profile p{font-size:12px;color:#8f98aa;line-height:1.6;margin:0}.profile a{display:block;text-align:center;margin-top:16px;background:#252a36;padding:10px;border-radius:10px;font-size:12px;font-weight:800}
+.hot{padding:5px 0}.hot a{display:flex;gap:10px;padding:11px 17px;font-size:13px}.hot a:hover{background:#1a1e27}.rank{color:#817aff;font-weight:950;width:15px}.hotTitle{overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.modal{display:none;position:fixed;inset:0;z-index:50;background:#000b;align-items:center;justify-content:center;padding:20px}.modal.open{display:flex}.modalBox{width:min(560px,100%);background:#171b24;border:1px solid #343b49;border-radius:18px;padding:22px}.modalBox h3{margin:0 0 18px}.modal input,.modal textarea{width:100%;background:#10131a;border:1px solid #303746;color:#fff;border-radius:10px;padding:12px;margin-bottom:10px;outline:none}.modal textarea{height:160px;resize:vertical}.actions{display:flex;justify-content:flex-end;gap:8px}.actions button{border:0;border-radius:9px;padding:10px 14px;cursor:pointer}.cancel{background:#292e39;color:#fff}.submit{background:#655cff;color:#fff;font-weight:800}
+footer{border-top:1px solid var(--line);padding:30px 0 40px;color:#70798a;font-size:12px}
+@media(max-width:900px){.layout{grid-template-columns:1fr}.side{display:grid;grid-template-columns:1fr 1fr}.videos{grid-template-columns:repeat(3,1fr)}}
+@media(max-width:650px){.wrap{width:calc(100% - 20px)}.menus{display:none}.hero{padding:26px;min-height:200px}.hero h1{font-size:30px}.videos{grid-template-columns:1fr}.side{grid-template-columns:1fr}.row{grid-template-columns:38px minmax(0,1fr) 65px}.author{display:none}.date{text-align:right}.hero:after{font-size:80px}}
+</style>
+</head>
+<body>
+<header><div class="wrap nav"><a href="#" class="logo">림예이<span style="color:#837cff">.</span></a><nav class="menus"><a href="#clips">영상/짤방</a><a href="#board">자유게시판</a><a href="#hot">인기글</a></nav><a class="station" href="https://www.sooplive.com/station/yeeeahm97" target="_blank" rel="noopener">SOOP 방송국 ↗</a></div></header>
+<div class="wrap">
+<section class="hero"><div class="heroText"><div class="tag">LIMYEEAH FAN COMMUNITY</div><h1>림예이 팬 커뮤니티</h1><p>영상 · 짤방 · 방송 이야기를 모아보는 비공식 팬페이지</p></div></section>
+<div class="layout">
+<main>
+<section class="section" id="clips">
+<div class="sectionHead"><h2>🎬 최신 영상 / 짤방</h2><span class="more">SOOP 원본 영상</span></div>
+<div class="videos">
+<a class="video" href="https://vod.sooplive.com/player/207963719" target="_blank"><div class="thumb"><span class="play"></span></div><div class="vodBody"><div class="vodTitle">숟딱</div><div class="vodMeta">SOOP · 원본 영상 보기</div></div></a>
+<a class="video" href="https://vod.sooplive.com/player/190020861" target="_blank"><div class="thumb"><span class="play"></span></div><div class="vodBody"><div class="vodTitle">리치 왕자님 객색기야 D질래?</div><div class="vodMeta">SOOP · 원본 영상 보기</div></div></a>
+<a class="video" href="https://vod.sooplive.com/player/171116187" target="_blank"><div class="thumb"><span class="play"></span></div><div class="vodBody"><div class="vodTitle">림A 시그니처 리액션</div><div class="vodMeta">SOOP · 원본 영상 보기</div></div></a>
+</div></section>
+
+<section class="section" id="board" style="margin-top:20px">
+<div class="sectionHead"><h2>💬 커뮤니티</h2><span class="more">자유롭게 이야기해요</span></div>
+<div class="tabs"><button class="tab active">전체</button><button class="tab">자유</button><button class="tab">짤방</button><button class="tab">방송</button></div>
+<div class="boardTop"><input class="search" id="boardSearch" placeholder="게시글 검색"><button class="writeBtn" id="write">글쓰기</button></div>
+<div id="rows">
+<div class="row notice" data-text="커뮤니티 이용 안내"><div class="num">공지</div><div class="subject">커뮤니티 이용 안내 및 게시물 삭제 요청 안내</div><div class="author">관리자</div><div class="date">공지</div></div>
+<div class="row" data-text="오늘 방송 재밌었다"><div class="num">3</div><div class="subject"><b>방송</b>오늘 방송 재밌었다 ㅋㅋ</div><div class="author">ㅇㅇ</div><div class="date">방금</div></div>
+<div class="row" data-text="이 장면 다시봐도 웃김"><div class="num">2</div><div class="subject"><b>짤방</b>이 장면 다시봐도 웃김</div><div class="author">림팬</div><div class="date">10.02</div></div>
+<div class="row" data-text="영상 모음 업데이트"><div class="num">1</div><div class="subject"><b>자유</b>영상 모음 업데이트 됐네요</div><div class="author">예이</div><div class="date">10.02</div></div>
+</div>
+</section>
+</main>
+
+<aside class="side">
+<section class="section profile"><div class="avatar">림</div><h3>림예이</h3><p>SOOP 스트리머 림예이의<br>비공식 팬 커뮤니티입니다.</p><a href="https://www.sooplive.com/station/yeeeahm97" target="_blank">방송국 바로가기 ↗</a></section>
+<section class="section" id="hot"><div class="sectionHead"><h2>🔥 인기글</h2></div><div class="hot"><a href="#"><span class="rank">1</span><span class="hotTitle">오늘 방송 레전드 장면</span></a><a href="#"><span class="rank">2</span><span class="hotTitle">시그니처 리액션 모음</span></a><a href="#"><span class="rank">3</span><span class="hotTitle">이 영상 처음 보는 사람?</span></a><a href="#"><span class="rank">4</span><span class="hotTitle">다음 방송 기다리는 중</span></a></div></section>
+</aside>
+</div>
+</div>
+
+<div class="modal" id="modal"><div class="modalBox"><h3>새 글 작성</h3><input id="title" placeholder="제목"><textarea id="content" placeholder="내용을 입력하세요"></textarea><div class="actions"><button class="cancel" id="cancel">취소</button><button class="submit" id="submit">등록</button></div></div></div>
+<footer><div class="wrap">림예이 비공식 팬 커뮤니티 · 영상은 SOOP 원본 페이지로 연결됩니다.<br>권리자의 게시물 삭제 요청이 있을 경우 확인 후 조치할 수 있습니다.</div></footer>
+<script>
+const modal=document.getElementById('modal'), rows=document.getElementById('rows');
+document.getElementById('write').onclick=()=>modal.classList.add('open');
+document.getElementById('cancel').onclick=()=>modal.classList.remove('open');
+modal.onclick=e=>{if(e.target===modal)modal.classList.remove('open')};
+document.getElementById('submit').onclick=()=>{
+ const t=document.getElementById('title').value.trim(),c=document.getElementById('content').value.trim();
+ if(!t){alert('제목을 입력해주세요.');return}
+ const r=document.createElement('div');r.className='row';r.dataset.text=t+' '+c;
+ r.innerHTML='<div class="num">NEW</div><div class="subject"><b>자유</b>'+t.replace(/[<>]/g,'')+'</div><div class="author">나</div><div class="date">방금</div>';
+ rows.insertBefore(r,rows.children[1]); modal.classList.remove('open');document.getElementById('title').value='';document.getElementById('content').value='';
+};
+document.getElementById('boardSearch').addEventListener('input',e=>{const q=e.target.value.toLowerCase();[...rows.children].forEach(r=>r.style.display=(r.dataset.text||'').toLowerCase().includes(q)?'':'none')});
+</script>
+</body></html>
